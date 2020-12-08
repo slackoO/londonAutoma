@@ -1,0 +1,38 @@
+.btn-primary {
+    background-color: #33545f !important;
+    border-width: 0 !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.btn-primary:hover {
+    background-color: #914343 !important;
+}
+
+.btn-primary:active {
+    background-color: #914343 !important;
+    transform: translateY(2px);
+}
+
+.card-img-top {
+    border-radius: 8%;
+    border: 0.5px solid beige;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-fluid  {
+    width: 50%;
+    display: flexbox;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-with-shadow {
+    box-shadow: 0 20px 20px rgba(0,0,0,0.2), 0 0 50px rgba(0,0,0,0.2);
+}
