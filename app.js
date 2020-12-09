@@ -11,7 +11,6 @@ const cardNameBeginning = "img/card-"
 const cardNameExtension = ".jpg"
 let gameDeck = []
 let startingDeck = []
-let z = 0
 
 container.addEventListener('click', callInitGame , false)
 
@@ -75,13 +74,14 @@ function shuffle(deckToShuffle) {
 function showNewElements() {
     drawBtn.style.display = "block"
     currentCard.style.display = "block"
+    currentCard.style.opacity = 0
     drawDeck()
 }
 
 function drawDeck() {
     let shiftTop = 1
     let shiftLeft = 1
-    z = startingDeck.length
+    let z = startingDeck.length
     for (let i = 0; i < startingDeck.length; i++) {
         var newCard = document.createElement("IMG")
         newCard.classList.add("card-img-top")
@@ -91,7 +91,7 @@ function drawDeck() {
         newCard.style.left = shiftLeft++ + "px"
         newCard.style.zIndex = z--;
         newCard.style.display = "block";
-        newCard.src = "img/back.jpg"
+        newCard.src = cardNameBeginning + gameDeck[i] + cardNameExtension
         document.querySelector('.card').appendChild(newCard)
     }
     var cardImgs = document.querySelectorAll(".deck-img")
@@ -100,10 +100,8 @@ function drawDeck() {
 
 function draw() {
     var cardImgs = document.querySelectorAll(".deck-img")
-    document.querySelector('.card').removeChild(cardImgs[cardImgs.length - 1])
+    document.querySelector('.card').removeChild(cardImgs[0])
     cardImgs[0].style.display = "none"
-    currentCard.style.zIndex = startingDeck.length + 1
-    currentCard.src = cardNameBeginning + gameDeck[0] + cardNameExtension
     gameDeck.splice(0,1)
     if(gameDeck.length == 0) {
         gameDeck = JSON.parse(JSON.stringify(startingDeck))
